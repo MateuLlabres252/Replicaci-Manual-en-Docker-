@@ -1,0 +1,22 @@
+services: 
+  primari: 
+    image: ubuntu:latest 
+    container_name: primari_node 
+    tty: true  # Manté el contenidor obert 
+    networks: 
+      asix_net: 
+        ipv4_address: 172.20.0.10 
+ 
+  replica: 
+    image: ubuntu:latest 
+    container_name: replica_node 
+    tty: true 
+    networks: 
+      asix_net: 
+        ipv4_address: 172.20.0.20 
+ 
+networks: 
+  asix_net: 
+    ipam: 
+      config: 
+        - subnet: 172.20.0.0/16
